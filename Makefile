@@ -14,4 +14,4 @@ test:
 
 build:
 	docker-compose run --rm node yarn run build
-	docker build -t hangman-typescript --target prod .
+	docker build -t hangman-typescript ./.circleci/nginx

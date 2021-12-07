@@ -3,8 +3,7 @@ version: '3.7'
 services:
   node:
     build:
-      target: dev
-      context: ./
+      context: ./.circleci/node
     volumes:
       - ./:/app
     command: yarn run start
@@ -14,7 +13,7 @@ services:
   nginx:
     build:
       target: prod
-      context: ./
+      context: ./.circleci/nginx
     volumes:
       - ./build:/app
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
