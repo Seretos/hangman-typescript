@@ -2,4 +2,21 @@ version: '3.7'
 
 services:
   node:
-    image: node:17.2
+    build:
+      target: dev
+      context: ./
+    volumes:
+      - ./:/app
+    command: yarn run start
+    ports:
+      - 3000:3000
+
+  nginx:
+    build:
+      target: prod
+      context: ./
+    volumes:
+      - ./build:/app
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
