@@ -2,11 +2,15 @@ version: 2.1
 
 jobs:
   build:
-    machine: true
+    docker:
+      - image: circleci/golang:1.15
+        auth:
+          username: seredos
+          password: $DOCKERHUB_PASSWORD
     steps:
-#      - setup_remote_docker:
-#          version: 19.03.13
-#          docker_layer_caching: true
+      - setup_remote_docker:
+          version: 19.03.13
+          docker_layer_caching: true
 #      - run:
 #          name: Install Docker client
 #          command: |
@@ -22,7 +26,6 @@ jobs:
           command: |
             curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o ~/docker-compose
             chmod +x ~/docker-compose
-            rm -rf /usr/local/bin/docker-compose
             mv ~/docker-compose /usr/local/bin/docker-compose
       - checkout
       - run:
