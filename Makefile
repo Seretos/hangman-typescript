@@ -14,5 +14,5 @@ test:
 
 build:
 	docker-compose run --rm node yarn run build
-	docker build -t hangman-typescript ./.circleci/nginx
+	docker build -t hangman-typescript .
 	tar -czvf hangman-typescript.tar.gz build
