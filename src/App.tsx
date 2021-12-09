@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import {MenuStateMachine} from "./menu/MenuStateMachine";
-import {MainMenuState} from "./menu/MainMenuState";
+import {Game} from "./main/GameContext";
+import {MainMenuState} from "./main/MainMenuState";
 
 function App() {
   return (
     <div className="App">
-        <MenuStateMachine state={new MainMenuState()}/>
+        <Game initialState={new MainMenuState()}/>
     </div>
   );
 }

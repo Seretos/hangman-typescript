@@ -11,7 +11,6 @@ run-prod:
 test:
 	docker-compose run --rm node yarn run test --watchAll=false
 
-
 build:
 	docker-compose run --rm node yarn run build
 	docker build -t hangman-typescript .

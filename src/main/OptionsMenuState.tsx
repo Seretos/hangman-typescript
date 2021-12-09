@@ -1,4 +1,4 @@
-import {MenuState} from "./MenuStateMachine";
+import {MenuState} from "./GameContext";
 import {MainMenuState} from "./MainMenuState";
 
 export class OptionsMenuState extends MenuState {
